@@ -48,3 +48,5 @@ npx playwright show-trace test-results/ruta-a-la-traza/trace.zip
 ```
 
 Las credenciales de prueba son las cuentas públicas que muestra SauceDemo en su página de inicio de sesión; no uses credenciales reales.
+<img width="1300" height="877" alt="Captura de pantalla 2026-11-13 212516" src="https://github.com/user-attachments/assets/f964a8b2-0789-41cf-a0f9-e6f1210fe5ff" />
+
