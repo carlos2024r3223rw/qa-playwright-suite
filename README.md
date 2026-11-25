@@ -1,15 +1,15 @@
-# Pruebas E2E de SauceDemo con Playwright
+# SauceDemo E2E Tests with Playwright
 
-Proyecto de automatización web con JavaScript, Playwright y Chromium. La aplicación bajo prueba es [SauceDemo](https://www.saucedemo.com).
+Web automation project built with JavaScript, Playwright, and Chromium. The application under test is [SauceDemo](https://www.saucedemo.com).
 
-## Requisitos
+## Requirements
 
-- Node.js 18 o superior y npm.
-- Acceso a internet la primera vez para descargar Playwright y Chromium.
+- Node.js 18 or higher and npm.
+- Internet access the first time to download Playwright and Chromium.
 
-## Instalación y ejecución
+## Installation and Usage
 
-Desde esta carpeta, ejecuta:
+From this folder, run:
 
 ```bash
 npm install
@@ -17,36 +17,35 @@ npx playwright install chromium
 npx playwright test
 ```
 
-Para abrir el reporte HTML más reciente:
+To open the latest HTML report:
 
 ```bash
 npx playwright show-report
 ```
 
-También puedes usar `npm test`, `npm run test:headed` para ver el navegador o `npm run test:ui` para explorar las pruebas interactivamente.
+You can also use `npm test`, `npm run test:headed` to watch the browser, or `npm run test:ui` to explore the tests interactively.
 
-## Arquitectura: Page Object Model
+## Architecture: Page Object Model
 
-Cada página principal tiene una clase en `pages/`. La clase guarda los localizadores y las acciones propias de esa pantalla. Los tests de `tests/` describen los escenarios usando esas acciones, lo que evita repetir selectores y hace más sencillo mantenerlos cuando cambia la interfaz.
+Each main page has a class in `pages/`. The class stores the locators and actions specific to that screen. The tests in `tests/` describe the scenarios using those actions, which avoids repeating selectors and makes them easier to maintain when the interface changes.
 
-- `LoginPage.js`: apertura de la página, inicio de sesión y lectura de errores.
-- `InventoryPage.js`: ordenamiento por precio, gestión de productos y contador del carrito.
-- `CheckoutPage.js`: formulario del comprador, validaciones y confirmación de compra.
+- `LoginPage.js`: opening the page, logging in, and reading errors.
+- `InventoryPage.js`: sorting by price, managing products, and the cart counter.
+- `CheckoutPage.js`: buyer form, validations, and purchase confirmation.
 
-## Escenarios cubiertos
+## Scenarios Covered
 
-- `tests/auth.spec.js`: login correcto, credenciales inválidas y usuario bloqueado.
-- `tests/e2e-purchase.spec.js`: orden ascendente por precio, selección de productos, carrito y compra confirmada.
-- `tests/form-validation.spec.js`: nombre, apellido y código postal obligatorios, además del formulario vacío.
+- `tests/auth.spec.js`: successful login, invalid credentials, and locked-out user.
+- `tests/e2e-purchase.spec.js`: ascending price sort, product selection, cart, and confirmed purchase.
+- `tests/form-validation.spec.js`: required first name, last name, and postal code, plus the empty form.
 
-## Reportes y evidencias
+## Reports and Evidence
 
-El reporte HTML se genera en `playwright-report/`. La configuración guarda capturas y trazas cuando una prueba falla (`screenshot: 'only-on-failure'` y `trace: 'retain-on-failure'`). Para inspeccionar una traza:
+The HTML report is generated in `playwright-report/`. The configuration saves screenshots and traces when a test fails (`screenshot: 'only-on-failure'` and `trace: 'retain-on-failure'`). To inspect a trace:
 
 ```bash
-npx playwright show-trace test-results/ruta-a-la-traza/trace.zip
+npx playwright show-trace test-results/path-to-the-trace/trace.zip
 ```
 
-Las credenciales de prueba son las cuentas públicas que muestra SauceDemo en su página de inicio de sesión; no uses credenciales reales.
+The test credentials are the public accounts that SauceDemo shows on its login page; do not use real credentials.
 <img width="1300" height="877" alt="Captura de pantalla 2026-11-13 212516" src="https://github.com/user-attachments/assets/f964a8b2-0789-41cf-a0f9-e6f1210fe5ff" />
-
